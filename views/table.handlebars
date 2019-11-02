@@ -1,0 +1,29 @@
+<h1> tabular data </h1>
+<div id="objTable"></div>
+<br>
+<div id="objCreate"></div>
+
+<script>
+    var decodedJson = decodeURIComponent("{{{encodedJson}}}");
+    var arr = JSON.parse(decodedJson);
+    console.log(arr);
+    var bldg = [];
+    for (var i = 0; i < arr.length; i++) {
+        bldg.push(arr[i]);
+    }
+</script>
+
+<script src="/static/js/ui.js"></script>
+
+<form action="/updateTable" method="post">
+    <textarea id="update" name="details" hidden></textarea>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    var data = bldg;
+    var datalist = ["id", "name", "x", "y", "w", "l", "h", "re", "gr", "bl", "floors"];
+    refreshObjectTable();
+    refreshEditTable();
+</script>
+

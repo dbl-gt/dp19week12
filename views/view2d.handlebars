@@ -1,0 +1,19 @@
+<h1>View2d</h1>
+
+<script>
+    var bldg=[];
+    var decodedJson=decodeURIComponent("{{{encodedJson}}}");
+    var arr=JSON.parse(decodedJson);
+    for(var i=0; i<arr.length; i++){
+        bldg.push(arr[i]);
+    }
+    console.log(bldg);
+</script>
+
+<script src="/static/js/p5code.js"></script>
+
+<form action="/update" method="post">
+<textarea name="details" id="update" hidden>
+</textarea>
+<button type="submit">Submit</button>
+</form>

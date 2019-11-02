@@ -1,0 +1,28 @@
+<h1>View3d</h1>
+<div id="3d"></div>
+
+<script>
+    var decodedJson= decodeURIComponent("{{{ encodedJson }}}");
+    var data=JSON.parse(decodedJson);
+    var bldg=[];
+    for(i=0; i<data.length; i++){
+        bldg.push(data[i]);
+    }
+    console.log(bldg);
+    
+    const div3d=document.getElementById('3d');
+    var scene3d, camera3d, renderer, controls, light;
+    var meshArr=[];
+    var ang=0.0;
+</script>
+
+<script src="static/js/main.js"></script>
+<script src="static/js/draw.js"></script>
+
+<script>
+    setup3d();
+    setInterval(draw3d, 100);
+</script>
+
+
+

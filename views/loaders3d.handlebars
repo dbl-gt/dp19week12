@@ -1,0 +1,38 @@
+<h1> Loaders</h1>
+
+<div id="3d"></div>
+
+<script>
+    const div3d=document.getElementById("3d");
+    var scene3d, camera3d, renderer, controls, light;
+    var meshArr=[];
+    var ang=0.0;
+    var te=new THREE.TextureLoader().load("/static/assets/img/earth.jpg");
+    var te2=new THREE.TextureLoader().load("/static/assets/img/wood.jpg");
+    var m2=new THREE.MeshPhongMaterial({
+        color:0xffffff,
+        map:te2
+    });
+
+    var mtl=new THREE.MTLLoader().load("/static/assets/model/bot.mtl", (mat)=>{
+        var obj=new THREE.OBJLoader().load("/static/assets/model/bot.obj", (object)=>{
+            object.scale.set(20,20,20);
+            object.position.set(110,110,0);
+            object.traverse(function(node){
+                if(node instanceof THREE.Mesh){
+                    node.material=m2;
+                }
+            });
+            scene3d.add(object);
+        }); 
+    });
+    
+</script>
+
+<script src= "/static/js/main.js"></script>
+<script src= "/static/js/draw.js"></script>
+
+<script>
+    setup3d();
+    setInterval(draw3dLoaders, 100);
+</script>

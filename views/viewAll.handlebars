@@ -1,0 +1,50 @@
+<h1> View all </h1>
+<form action="/updateAll" method="post">
+    <textarea id="update" name="details" hidden></textarea>
+    <button type="submit">DATA to FILE</button>
+</form>
+
+<div id="objTable"></div>
+<br>
+<div id="objCreate"></div>
+
+<script>
+    document.onload=function(){console.log("hello world")};
+    var decodedJson = decodeURIComponent("{{{encodedJson}}}");
+    var arr = JSON.parse(decodedJson);
+    console.log(arr);
+    var bldg = [];
+    for (var i = 0; i < arr.length; i++) {
+        bldg.push(arr[i]);
+    }
+</script>
+
+<script src="/static/js/ui.js"></script>
+
+<script>
+    var data = bldg;
+    var datalist = ["id", "name", "x", "y", "w", "l", "h", "re", "gr", "bl", "floors"];
+    refreshObjectTable();
+    refreshEditTable();
+</script>
+
+
+<script src="/static/js/p5code.js"></script>
+
+
+<div id="3d"></div>
+
+<script>
+    const div3d=document.getElementById('3d');
+    var scene3d, camera3d, renderer, controls, light;
+    var meshArr=[];
+    var ang=0.0;
+</script>
+
+<script src="static/js/main.js"></script>
+<script src="static/js/draw.js"></script>
+
+<script>
+    setup3d();
+    setInterval(draw3d, 100);
+</script>
