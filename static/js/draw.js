@@ -16,9 +16,9 @@ function draw3d(){
 
     for (var i=0; i<bldg.length; i++){
         var g=gen3dBldg(bldg[i]);
-        var re=bldg[i].re;
-        var gr=bldg[i].gr;
-        var bl=bldg[i].bl;
+        var re=parseInt(bldg[i].re);
+        var gr=parseInt(bldg[i].gr);
+        var bl=parseInt(bldg[i].bl);
 
         var m=new THREE.MeshPhongMaterial({
             color:new THREE.Color("rgb("+re+","+gr+","+bl+")"),
@@ -61,11 +61,11 @@ function draw3dLoaders(){
 }
 
 function gen3dBldg(arr){
-    var x=arr.x;
-    var y=arr.y;
-    var l=arr.l;
-    var w=arr.w;
-    var h=arr.h;
+    var x=parseFloat(arr.x);
+    var y=parseFloat(arr.y);
+    var l=parseFloat(arr.l);
+    var w=parseFloat(arr.w);
+    var h=parseFloat(arr.h);
     var p0=new THREE.Vector3(x,y,0);
     var p1=new THREE.Vector3(x+l,y,0);
     var p2=new THREE.Vector3(x+l,y+w,0);
