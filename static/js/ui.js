@@ -1,12 +1,13 @@
+/*
+   DYNAMIC OBJECT - VALUE CREATION TABLE refreshObjectTable()
+   Essentially creates a row for each object in data, 
+   with an input field for each value listed in datalist
+   onEditValue() and onDeleteValue() are helper functions
+*/
 
-//////  DYNAMIC OBJECT - VALUE CREATION TABLE refreshObjectTable()
-/////   Essentially creates a row for each object in data, 
-/////   with an input field for each value listed in datalist
-/////   onEditValue() and onDeleteValue() are helper functions
 function refreshObjectTable() {
     let i, j;
     var demodiv = document.getElementById("objTable");
-
     let objText = "";
     objText += "<form>";
     objText += "<table>";
@@ -18,7 +19,6 @@ function refreshObjectTable() {
         objText += "</td>";
     }
     objText += "</tr>";
-
     // make the table of editable object data fields
     for (i = 0; i < data.length; i++) { // for each object
         var item = data[i];
@@ -34,10 +34,8 @@ function refreshObjectTable() {
         objText += '<td><input type="button" onclick="onDeleteObject(this.name)" name="' + i + '" value="DELETE" > </td>';
         objText += "</tr>";
     }
-
     objText += "</table>";
     objText += "</form>";
-
     //    console.log(objText);
     demodiv.innerHTML = objText;
     loaddata();
@@ -47,9 +45,7 @@ function refreshObjectTable() {
 function onEditValue(name, value) {
     // break out the object # and value
     var res = name.split("?");
-    //console.log("changed: " + res[0] + ", " + res[1] + ", " + value);
     data[res[0]][res[1]] = value;
-    //console.log(data);
 }
 
 function onDeleteObject(name) {
@@ -61,10 +57,13 @@ function onDeleteObject(name) {
 
 //   refreshObjectTable();
 
-//////  DYNAMIC OBJECT CREATION TABLE
-/////   Essentially creates a row for each value in datalist, 
-/////   and a creation function
-/////   onCreateObject() is a helper function
+/*
+    DYNAMIC OBJECT CREATION TABLE
+   Essentially creates a row for each value in datalist, 
+   and a creation function
+   onCreateObject() is a helper function
+*/
+
 function refreshEditTable() {
     let j;
     var editDiv = document.getElementById("objCreate");
@@ -83,11 +82,8 @@ function refreshEditTable() {
     objText += "</table>";
     objText += '<input type="button" onclick="onCreateObject()" value="CREATE" ></input>'
     objText += "</form>";
-
-    //console.log(objText);
     editDiv.innerHTML = objText;
 }
-
 
 function onCreateObject() {
     let newObj = new Object;
@@ -99,9 +95,15 @@ function onCreateObject() {
 }
 
 //      refreshEditTable();
+
 function printData(){
     console.log(data);
 }
+
+/*
+    load this function to convert 
+    array into collections of json objects
+*/
 
 function loaddata(){
     var arr = [];

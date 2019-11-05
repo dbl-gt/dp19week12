@@ -1,6 +1,7 @@
 
 function setup() {
-    createCanvas(500, 500);
+    canvas=createCanvas(500, 500);
+    canvas.parent('p5sketch');
     loaddata();
 }
 
